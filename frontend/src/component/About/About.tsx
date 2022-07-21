@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { client } from '../../SanityClient'
+import { client, urlFor } from '../../SanityClient'
 import { SideNav } from '../Navbar/SideNav/SideNav'
 import { AboutCardsState } from './About.model'
 import { Card } from './Card/Card'
@@ -31,7 +31,7 @@ export const About: React.FC = () => {
               key={`about-cards ${index}`}
               title={card.title}
               description={card.description}
-              ImageSRC={card.mainImage}
+              ImageSRC={urlFor(card.mainImage).url()}
             />
           ))}
         </Cards>

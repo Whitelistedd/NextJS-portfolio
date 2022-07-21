@@ -124,8 +124,8 @@ const About = styled.div`
   height: 0%;
   overflow: hidden;
   opacity: 0;
-  transition: 1s ease-in;
-  transition-delay: 700ms;
+  transition: 500ms ease-in;
+  transition-delay: 600ms;
 `
 
 const FadeDown = keyframes`
@@ -158,7 +158,7 @@ const Container = styled.div<{ animation: string }>`
   gap: 0.5em;
   text-align: center;
   font-size: 20px;
-  transition: 700ms ease-in;
+  transition: 600ms ease;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.2);

@@ -1,11 +1,10 @@
 import styled from 'styled-components'
-import { urlFor } from '../../../SanityClient'
 import { CardProps } from '../About.model'
 
 export const Card: React.FC<CardProps> = ({ title, description, ImageSRC }) => {
   return (
     <Container>
-      <Image src={urlFor(ImageSRC)} alt={title} />
+      <Image src={ImageSRC} alt={title} />
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Container>

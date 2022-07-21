@@ -66,7 +66,7 @@ export const Projects: React.FC = () => {
             key={`projects-cards ${index}`}
             title={card.title}
             description={card.description}
-            ImageSRC={urlFor(card.mainImage)}
+            ImageSRC={urlFor(card.mainImage).url()}
             projectLink={card.projectLink}
             projectCode={card.projectCode}
             animation={animation}

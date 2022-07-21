@@ -4,12 +4,10 @@ export interface CardProps {
   projectLink: string
   projectCode: string
   tags: string[]
-  ImageSRC: {
-    options: { baseUrl: string }
-  }
+  animation: string
+  ImageSRC: string
 }
 
 export interface ProjectsCardsState extends CardProps {
   mainImage: { options: { baseUrl: string } }
-  animation: string
 }

@@ -1,9 +1,7 @@
 export interface CardProps {
   title: string
   description: string
-  ImageSRC: {
-    options: { baseUrl: string }
-  }
+  ImageSRC: string
 }
 
 export interface AboutCardsState extends CardProps {
