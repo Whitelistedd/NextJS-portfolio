@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// @ts-ignore
 import Typewriter from 'typewriter-effect'
 import { SideNav } from '../Navbar/SideNav/SideNav'
 
