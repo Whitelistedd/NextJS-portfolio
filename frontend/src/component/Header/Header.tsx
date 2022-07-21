@@ -1,27 +1,24 @@
 import styled from 'styled-components'
-import Typewriter from 'typewriter-effect'
+import { useTypewriter } from 'react-simple-typewriter'
 import { SideNav } from '../Navbar/SideNav/SideNav'
 
 export const Header: React.FC = () => {
+  const { text } = useTypewriter({
+    words: [
+      ' Full-stack разработчик.',
+      ' Front-end разработчик.',
+      ' Back-end разработчик.',
+    ],
+    loop: 0,
+  })
+
   return (
     <Container id="Главная">
       <SideNav activeId={1} />
       <Wrap>
         <Title>ПРИВЕТ, МЕНЯ ЗОВУТ</Title>
         <Name>Мухамад.</Name>
-        <Position>
-          <Typewriter
-            options={{
-              strings: [
-                'Я Full-stack разработчик.',
-                'Я Front-end разработчик.',
-                'Я Back-end разработчик.',
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </Position>
+        <Position>Я{text}</Position>
         <About>
           Мне нравится создавать красивые сайты для людей 🚀. В настоящее время
           я сосредоточен на изучении и освоении ReactJS, а также React Native в
