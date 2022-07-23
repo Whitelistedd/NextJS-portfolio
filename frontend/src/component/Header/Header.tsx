@@ -101,8 +101,8 @@ const Container = styled.section`
     ${Wrap} {
       width: 400px;
     }
-    ${Position} {
-      font-size: 1.5em;
-    }
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 12px;
   }
 `

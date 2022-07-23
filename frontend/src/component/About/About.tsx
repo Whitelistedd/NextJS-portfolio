@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
 import { SideNav } from '../Navbar/SideNav/SideNav'
+import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
 import { AboutCardsState } from './About.model'
 import { Card } from './Card/Card'
 
@@ -18,10 +19,10 @@ export const About: React.FC = () => {
     <Container id="Обо мне">
       <SideNav activeId={2} />
       <Wrap>
-        <Title>
+        <SectionTitle>
           Я Знаю, Что <Hightlight>Хорошее Разработке</Hightlight> Означает
           <Hightlight> Хороший Бизнес</Hightlight>
-        </Title>
+        </SectionTitle>
         <Cards>
           {aboutCards?.map((card, index) => (
             <Card
@@ -44,15 +45,6 @@ const Cards = styled.div`
   justify-content: center;
   align-self: flex-end;
   flex-wrap: wrap;
-`
-
-export const Hightlight = styled.span`
-  color: var(--secondary-font-color);
-  font-size: 1em;
-`
-
-const Title = styled.h2`
-  max-width: 600px;
 `
 
 const Wrap = styled.div`
@@ -78,16 +70,10 @@ const Container = styled.section`
   }
 
   @media only screen and (max-width: 1000px) {
-    ${Title} {
-      max-width: 550px;
-    }
     font-size: 20px;
   }
 
   @media only screen and (max-width: 680px) {
-    ${Title} {
-      max-width: 430px;
-    }
     font-size: 17px;
   }
 `

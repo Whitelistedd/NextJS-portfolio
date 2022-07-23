@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
+import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
 import { Exp } from './Exp/Exp'
 import { Skill } from './Skill/Skill'
 import { ExpStateType, skillsStateType } from './SkillsAndExp.model'
@@ -10,11 +11,10 @@ export const SkillsAndExp: React.FC = () => {
   const [experiences, SetExperiences] = useState<ExpStateType>()
 
   useEffect(() => {
-    const experienceQuery = '*[_type == "experience"]'
+    const experienceQuery = '*[_type == "experiences"]'
     const skillsQuery = '*[_type == "skills"]'
 
     client.fetch(experienceQuery).then((data) => {
-      console.log(data)
       SetExperiences(data)
     })
 
@@ -25,7 +25,9 @@ export const SkillsAndExp: React.FC = () => {
 
   return (
     <Container>
-      <Title>Навыки и Опыт</Title>
+      <SectionTitle>
+        <Hightlight>Навыки</Hightlight> и <Hightlight>Опыт</Hightlight>
+      </SectionTitle>
       <Wrap>
         <SkillsContainer>
           {skills?.map((skill, index) => (
@@ -42,7 +44,7 @@ export const SkillsAndExp: React.FC = () => {
             <Exp
               key={`Exp-${index}`}
               date={experience.date}
-              details={experience.tags}
+              details={experience.details}
             />
           ))}
         </ExperienceContainer>
@@ -54,6 +56,8 @@ export const SkillsAndExp: React.FC = () => {
 const ExperienceContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1em;
   width: 500px;
 `
 
@@ -62,11 +66,6 @@ const SkillsContainer = styled.div`
   flex-wrap: wrap;
   max-width: 500px;
   gap: 1em;
-`
-
-const Title = styled.h1`
-  font-size: 2em;
-  width: 100%;
 `
 
 const Wrap = styled.div`
@@ -89,25 +88,20 @@ const Container = styled.section`
   align-items: center;
   text-align: center;
 
-  @media only screen and (max-width: 2000px) {
-  }
-
-  @media only screen and (max-width: 1500px) {
-  }
-
-  @media only screen and (max-width: 1200px) {
-  }
-
   @media only screen and (max-width: 680px) {
-    ${Wrap} {
-    }
     ${SkillsContainer} {
       align-items: center;
       justify-content: center;
     }
     ${ExperienceContainer} {
-      font-size: 19px;
+      font-size: 25px;
       justify-content: center;
+      align-items: center;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    ${ExperienceContainer} {
+      font-size: 18px;
     }
   }
 `

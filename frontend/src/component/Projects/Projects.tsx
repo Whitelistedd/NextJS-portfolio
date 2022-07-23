@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { filterTypes } from '../../constants'
 import { client, urlFor } from '../../SanityClient'
-import { Hightlight } from '../About/About'
+import { Hightlight } from '../SectionTitle/SectionTitle'
 import { SideNav } from '../Navbar/SideNav/SideNav'
+import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { Card } from './Card/Card'
 import { ProjectsCardsState } from './Projects.model'
 
@@ -43,9 +44,9 @@ export const Projects: React.FC = () => {
   return (
     <Container id="Проекты">
       <SideNav activeId={3} />
-      <Title>
+      <SectionTitle>
         Мои <Hightlight>Проекты</Hightlight>
-      </Title>
+      </SectionTitle>
       <Selections>
         {filterTypes.map((filterType, index) => (
           <Selection
@@ -106,8 +107,6 @@ const Selections = styled.div`
   gap: 1em;
 `
 
-const Title = styled.h2``
-
 const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -118,4 +117,11 @@ const Container = styled.section`
   gap: 3em;
   padding: 1em;
   font-size: 25px;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 680px) {
+  }
 `

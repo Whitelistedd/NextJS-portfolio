@@ -6,8 +6,8 @@ export const Exp: React.FC<ExpProps> = ({ date, details }) => {
     <Container>
       <Date>{date}</Date>
       <Details>
-        {details?.map((detail) => (
-          <Detail>
+        {details?.map((detail, index) => (
+          <Detail key={`Exp-detail-${index}`}>
             <Title>{detail.title}</Title>
             <Company>{detail.description}</Company>
           </Detail>
@@ -23,7 +23,9 @@ const Company = styled.p`
   color: grey;
 `
 
-const Title = styled.p``
+const Title = styled.p`
+  font-size: 0.8em;
+`
 
 const Detail = styled.div``
 
@@ -34,10 +36,11 @@ const Details = styled.div`
 `
 
 const Date = styled.p`
+  font-size: 0.8em;
   color: var(--secondary-font-color);
 `
 
 const Container = styled.div`
   display: flex;
-  gap: 1em;
+  gap: 3em;
 `

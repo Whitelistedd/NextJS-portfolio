@@ -1,12 +1,13 @@
 export default {
-    name: 'experience',
-    title: 'Experience',
+    name: 'experiences',
+    title: 'Experiences',
     type: 'document',
     fields: [
         {
             name: 'date',
             title: 'Date',
             type: 'string',
+            validation: Rule => Rule.required()
         },
         {
             name: 'details',
@@ -15,18 +16,20 @@ export default {
             of: [
                 {
                     name: 'Exp',
-                    title: 'Tag',
+                    title: 'Experiences',
                     type: 'object',
                     fields: [
                         {
                             name: 'title',
                             title: 'Title',
                             type: 'string',
+                            validation: Rule => Rule.required()
                         },
                         {
                             name: 'description',
                             title: 'Description',
                             type: 'string',
+                            validation: Rule => Rule.required()
                         },
                     ]
                 },
@@ -39,15 +42,13 @@ export default {
 
     preview: {
         select: {
-            title: 'title',
-            author: 'author.name',
-            media: 'mainImage',
+            date: 'date',
         },
         prepare(selection) {
-            const { author } = selection
-            return Object.assign({}, selection, {
-                subtitle: author && `by ${author}`,
-            })
+            const { date, desc } = selection
+            return {
+                title: date,
+            }
         },
     },
 }

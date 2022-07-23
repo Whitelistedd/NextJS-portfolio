@@ -157,7 +157,6 @@ const Wrap = styled.div<{ animation: string }>`
   flex-direction: column;
   gap: 0.5em;
   text-align: center;
-  font-size: 20px;
   transition: 400ms ease;
   background: linear-gradient(
     135deg,
@@ -179,12 +178,19 @@ const Wrap = styled.div<{ animation: string }>`
       overflow: visible;
     }
   }
-
-  @media only screen and (max-width: 680px) {
-    width: 300px;
-  }
 `
 
 const Container = styled.div`
   height: 296px;
+  font-size: 20px;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 17px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    ${Wrap} {
+      width: 300px;
+    }
+  }
 `

@@ -5,13 +5,22 @@ import { SkillProps } from '../SkillsAndExp.model'
 export const Skill: React.FC<SkillProps> = ({ ImageSRC, title, url }) => {
   return (
     <Anchor target="_blank" href={url}>
-      <SkillsImage width={100} height={100} alt={title} src={ImageSRC} />
+      <ImageWrap>
+        <SkillsImage
+          layout="responsive"
+          width={100}
+          height={100}
+          alt={title}
+          src={ImageSRC}
+        />
+      </ImageWrap>
       <Title>{title}</Title>
     </Anchor>
   )
 }
 
 const Title = styled.p`
+  margin-top: 10px;
   font-size: 0.5em;
 `
 
@@ -25,11 +34,25 @@ const SkillsImage = styled(Image)`
   }
 `
 
+const ImageWrap = styled.div`
+  width: 100px;
+`
+
 const Anchor = styled.a`
   color: var(--font-color);
   text-decoration: none;
 
   span {
     border-radius: 50%;
+  }
+
+  @media only screen and (max-width: 680px) {
+    font-size: 13px;
+    ${SkillsImage} {
+      padding: 10px !important;
+    }
+    ${ImageWrap} {
+      width: 48px;
+    }
   }
 `

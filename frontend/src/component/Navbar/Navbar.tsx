@@ -31,6 +31,7 @@ export const Navbar: React.FC = () => {
       </MenuIconWrap>
       <MobileMenu toggleMobileMenu={toggleMobileMenu} showMenu={showMenu} />
       <NavList>
+        <ThemeChanger />
         {NavListItems.map((item) => (
           <ListItem key={item}>
             <Anchor href={`#${item}`}>{item}</Anchor>
@@ -40,6 +41,8 @@ export const Navbar: React.FC = () => {
     </Container>
   )
 }
+
+const ThemeChanger = styled.div``
 
 const ListItem = styled.li``
 
@@ -70,6 +73,7 @@ const MenuIconWrap = styled.div``
 const Container = styled.nav`
   display: flex;
   width: 100%;
+  max-width: 1920px;
   font-family: roboto;
   align-items: center;
   justify-content: flex-end;

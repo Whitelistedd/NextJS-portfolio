@@ -39,4 +39,14 @@ const Container = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 16px;
+    width: 250px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    font-size: 19px;
+    width: 300px;
+  }
 `

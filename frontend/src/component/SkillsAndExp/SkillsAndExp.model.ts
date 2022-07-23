@@ -3,7 +3,7 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 export type ExpStateType = [
   {
     date: string
-    tags: Array<{
+    details: Array<{
       title: string
       description: string
     }>
