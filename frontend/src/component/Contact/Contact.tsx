@@ -46,7 +46,7 @@ export const Contact: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container id="Контакт">
       <SectionTitle>Общаться со мной</SectionTitle>
       {!formSubmitted ? (
         <Form>
@@ -137,7 +137,7 @@ const Form = styled.div`
   width: 100%;
 `
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;

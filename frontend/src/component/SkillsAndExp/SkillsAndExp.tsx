@@ -24,7 +24,7 @@ export const SkillsAndExp: React.FC = () => {
   }, [])
 
   return (
-    <Container>
+    <Container id="Навыки">
       <SectionTitle>
         <Hightlight>Навыки</Hightlight> и <Hightlight>Опыт</Hightlight>
       </SectionTitle>
