@@ -39,7 +39,7 @@ const ImageWrap = styled.div`
 `
 
 const Anchor = styled.a`
-  color: var(--font-color);
+  color: ${({ theme }) => theme.primaryColor};
   text-decoration: none;
 
   span {

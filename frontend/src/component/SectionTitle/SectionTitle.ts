@@ -4,6 +4,7 @@ export const SectionTitle = styled.h2`
   font-size: 50px;
   text-align: center;
   width: 900px;
+  color: ${({ theme }) => theme.primaryColor};
 
   @media only screen and (max-width: 1000px) {
     font-size: 35px;

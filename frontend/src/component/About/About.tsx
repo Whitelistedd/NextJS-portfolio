@@ -59,7 +59,7 @@ const Wrap = styled.div`
 const Container = styled.section`
   width: 100%;
   min-height: 100vh;
-  color: var(--font-color);
+  color: ${({ theme }) => theme.primaryColor};
   display: flex;
   align-items: center;
   justify-content: center;

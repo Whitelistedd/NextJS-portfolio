@@ -1,5 +1,7 @@
-import { ChangeEvent, ChangeEventHandler, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 
 export const Contact: React.FC = () => {
@@ -9,9 +11,7 @@ export const Contact: React.FC = () => {
   const [error, setError] = useState('')
 
   const handleOnChange = (
-    event:
-      | ChangeEvent<HTMLInputElement>
-      | ChangeEventHandler<HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { value, name } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -30,10 +30,8 @@ export const Contact: React.FC = () => {
       return
     }
 
-    fetch('/api/submit', {
-      method: 'POST',
-      body: JSON.stringify({ name: name, email: email, message: message }),
-    })
+    axios
+      .post('/api/submit', { name: name, email: email, message: message })
       .then(() => {
         setFormData({ name: '', email: '', message: '' })
         setFormSubmitted(true)
@@ -65,10 +63,9 @@ export const Contact: React.FC = () => {
             placeholder="Name"
           />
           <MessageInput
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
             value={formData.message}
             name="message"
-            type="message"
             placeholder="Name"
           />
           {error && <Error>{error}</Error>}

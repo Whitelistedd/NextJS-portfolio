@@ -98,7 +98,7 @@ const ImageWrap = styled.div`
 const Tag = styled.p`
   position: absolute;
   bottom: 0px;
-  background-color: #f0f4f9;
+  background-color: ${({ theme }) => theme.tagColor};
   padding: 7px;
   border-radius: 10px 10px 0px 0px;
   border-top: 1px solid black;
@@ -114,6 +114,7 @@ const Description = styled.p`
 
 const Title = styled.h3`
   font-size: 1em;
+  color: ${({ theme }) => theme.primaryColor};
 `
 
 const About = styled.div`

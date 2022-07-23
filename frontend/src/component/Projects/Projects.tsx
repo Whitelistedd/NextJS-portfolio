@@ -86,8 +86,10 @@ const Cards = styled.div`
 const Selection = styled.button<{ active: boolean }>`
   padding: 0.6em 1em;
   background-color: ${(props) =>
-    props.active ? 'var(--secondary-font-color)' : 'white'};
-  color: ${(props) => (props.active ? 'white' : 'black')};
+    props.active
+      ? props.theme.secondaryColor
+      : props.theme.secondaryBackground};
+  color: ${(props) => (props.active ? 'white' : props.theme.primaryColor)};
   border: none;
   border-radius: 10px;
   font-size: 0.6em;
@@ -97,7 +99,7 @@ const Selection = styled.button<{ active: boolean }>`
 
   &:hover {
     cursor: pointer;
-    background-color: var(--secondary-font-color);
+    background-color: ${({ theme }) => theme.secondaryColor};
     color: white;
   }
 `

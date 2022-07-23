@@ -35,7 +35,7 @@ const About = styled.p`
 `
 
 const Position = styled.div`
-  color: var(--secondary-font-color);
+  color: ${({ theme }) => theme.secondaryColor};
   font-size: 1.7em;
   font-family: var(--font-secondary);
   font-weight: 900;
@@ -67,7 +67,7 @@ const Container = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  color: var(--font-color);
+  color: ${({ theme }) => theme.primaryColor};
 
   @media only screen and (max-width: 2000px) {
     font-size: 28px;

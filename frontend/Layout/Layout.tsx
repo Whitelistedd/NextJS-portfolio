@@ -1,16 +1,26 @@
-import styled from 'styled-components'
+import { useState } from 'react'
+import styled, { ThemeProvider } from 'styled-components'
 import { Navbar } from '../src/component/Navbar/Navbar'
 import { GlobalStyle } from '../src/GlobalStyles'
+import { theme } from '../src/theme'
 
 export const Layout: React.FC<any> = ({ children }) => {
+  const [selectedTheme, setSelectedTheme] = useState('dark')
+
+  const toggleTheme = () => {
+    setSelectedTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+  }
+
   return (
-    <Container>
-      <Wrap>
-        <Navbar />
-        <GlobalStyle />
-        {children}
-      </Wrap>
-    </Container>
+    <ThemeProvider theme={theme[`${selectedTheme}`]}>
+      <Container>
+        <Wrap>
+          <Navbar SelectedTheme={selectedTheme} toggleTheme={toggleTheme} />
+          <GlobalStyle />
+          {children}
+        </Wrap>
+      </Container>
+    </ThemeProvider>
   )
 }
 
@@ -21,8 +31,9 @@ const Wrap = styled.div`
 
 const Container = styled.div`
   font-family: var(--font-base);
-  background-color: #edf2f8;
+  background-color: ${({ theme }) => theme.background};
   display: flex;
   align-items: center;
+  transition: 500ms ease;
   justify-content: center;
 `

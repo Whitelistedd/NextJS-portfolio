@@ -25,6 +25,7 @@ const Company = styled.p`
 
 const Title = styled.p`
   font-size: 0.8em;
+  color: ${({ theme }) => theme.primaryColor};
 `
 
 const Detail = styled.div``

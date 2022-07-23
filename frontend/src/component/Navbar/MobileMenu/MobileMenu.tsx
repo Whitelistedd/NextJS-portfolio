@@ -53,7 +53,7 @@ const NavList = styled.ul`
 
 const Close = styled.div`
   align-self: flex-end;
-  padding: 1.8em 1.5em 0em 0em;
+  padding: 1.3em 1.4em 0em 0em;
   span {
     transition: 1s ease;
   }
@@ -74,7 +74,7 @@ const Wrap = styled.div<{ showMenu: boolean }>`
   flex-direction: column;
   right: 0;
   top: 0;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background};
   z-index: 2;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
 `

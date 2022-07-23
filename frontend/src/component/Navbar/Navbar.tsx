@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { MobileMenu } from './MobileMenu/MobileMenu'
+import { NavbarProps } from './Navbar.model'
+import { ThemeChanger } from './ThemeChanger/ThemeChanger'
 
 export const NavListItems = [
   'Главная',
@@ -11,7 +13,10 @@ export const NavListItems = [
   'Контакт',
 ]
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<NavbarProps> = ({
+  toggleTheme,
+  SelectedTheme,
+}) => {
   const [showMenu, setShowMenu] = useState(false)
 
   const toggleMobileMenu = () => {
@@ -20,6 +25,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <Container>
+      <ThemeChanger SelectedTheme={SelectedTheme} toggleTheme={toggleTheme} />
       <MenuIconWrap>
         <MenuIcon
           onClick={() => toggleMobileMenu()}
@@ -31,7 +37,6 @@ export const Navbar: React.FC = () => {
       </MenuIconWrap>
       <MobileMenu toggleMobileMenu={toggleMobileMenu} showMenu={showMenu} />
       <NavList>
-        <ThemeChanger />
         {NavListItems.map((item) => (
           <ListItem key={item}>
             <Anchor href={`#${item}`}>{item}</Anchor>
@@ -41,8 +46,6 @@ export const Navbar: React.FC = () => {
     </Container>
   )
 }
-
-const ThemeChanger = styled.div``
 
 const ListItem = styled.li``
 
@@ -76,17 +79,18 @@ const Container = styled.nav`
   max-width: 1920px;
   font-family: roboto;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   position: fixed;
   padding: 1em;
   height: 70px;
   z-index: 5;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  background: #edf2f8;
+  background: transparent;
   font-family: var(--font-secondary);
   color: grey;
 
   @media only screen and (max-width: 800px) {
+    justify-content: space-between;
     ${NavList} {
       display: none;
     }
