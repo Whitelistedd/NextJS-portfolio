@@ -57,14 +57,13 @@ const Wrap = styled.div`
 `
 
 const Container = styled.section`
-  background-color: #eef0f9;
+  background-color: transparent;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0em 1em;
-  background-image: url('/assets/images/bgIMG.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

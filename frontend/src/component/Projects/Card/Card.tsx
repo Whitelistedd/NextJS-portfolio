@@ -12,33 +12,35 @@ export const Card: React.FC<CardProps> = ({
   animation,
 }) => {
   return (
-    <Container animation={animation}>
-      <ImageWrap>
-        <Overlay>
-          <Anchor target="_blank" href={projectLink}>
-            <OverlayImage
-              width={50}
-              height={50}
-              src={'/assets/images/eye.svg'}
-              alt="eye"
-            />
-          </Anchor>
-          <Anchor target="_blank" href={projectCode}>
-            <OverlayImage
-              width={50}
-              height={50}
-              src={'/assets/images/github.svg'}
-              alt="eye"
-            />
-          </Anchor>
-        </Overlay>
-        <ProjectImage src={ImageSRC} alt={title} />
-        <Tag>{tags[0]}</Tag>
-      </ImageWrap>
-      <About>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-      </About>
+    <Container>
+      <Wrap animation={animation}>
+        <ImageWrap>
+          <Overlay>
+            <Anchor target="_blank" href={projectLink}>
+              <OverlayImage
+                width={50}
+                height={50}
+                src={'/assets/images/eye.svg'}
+                alt="eye"
+              />
+            </Anchor>
+            <Anchor target="_blank" href={projectCode}>
+              <OverlayImage
+                width={50}
+                height={50}
+                src={'/assets/images/github.svg'}
+                alt="eye"
+              />
+            </Anchor>
+          </Overlay>
+          <ProjectImage src={ImageSRC} alt={title} />
+          <Tag>{tags[0]}</Tag>
+        </ImageWrap>
+        <About>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </About>
+      </Wrap>
     </Container>
   )
 }
@@ -150,7 +152,7 @@ const FadeUp = keyframes`
   }
 `
 
-const Container = styled.div<{ animation: string }>`
+const Wrap = styled.div<{ animation: string }>`
   width: 375px;
   max-height: 182px;
   display: flex;
@@ -159,9 +161,14 @@ const Container = styled.div<{ animation: string }>`
   text-align: center;
   font-size: 20px;
   transition: 600ms ease;
-  background-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
   border-radius: 10px;
-  box-shadow: 0px 0px 30px rgb(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 32px 0 rgb(0, 0, 0, 0.37);
   animation: 520ms linear
     ${(props) => (props.animation === 'fadeUp' ? FadeUp : FadeDown)};
 
@@ -174,4 +181,8 @@ const Container = styled.div<{ animation: string }>`
       overflow: visible;
     }
   }
+`
+
+const Container = styled.div`
+  height: 296px;
 `
