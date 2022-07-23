@@ -59,7 +59,6 @@ const OverlayImage = styled(Image)`
   background: #000000a6;
   padding: 10px !important;
   border-radius: 50%;
-  transition: 300ms ease;
 
   &:hover {
     cursor: pointer;
@@ -81,7 +80,6 @@ const Overlay = styled.div`
   width: 100%;
   border-radius: 10px;
   color: white;
-  transition: 500ms ease;
 `
 
 const ImageWrap = styled.div`
@@ -126,8 +124,8 @@ const About = styled.div`
   height: 0%;
   overflow: hidden;
   opacity: 0;
-  transition: 500ms ease-in;
-  transition-delay: 600ms;
+  transition: 400ms ease-in;
+  transition-delay: 400ms;
 `
 
 const FadeDown = keyframes`
@@ -160,7 +158,7 @@ const Wrap = styled.div<{ animation: string }>`
   gap: 0.5em;
   text-align: center;
   font-size: 20px;
-  transition: 600ms ease;
+  transition: 400ms ease;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1),
