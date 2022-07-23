@@ -9,12 +9,9 @@ export const About: React.FC = () => {
   const [aboutCards, setAboutCards] = useState<AboutCardsState[]>([])
 
   useEffect(() => {
-    const getAllAboutCards = () => {
-      const query = '*[_type == "about"]'
+    const query = '*[_type == "about"]'
 
-      client.fetch(query).then((data) => setAboutCards(data))
-    }
-    getAllAboutCards()
+    client.fetch(query).then((data) => setAboutCards(data))
   }, [])
 
   return (

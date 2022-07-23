@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { About } from '../src/component/About/About'
 import { Header } from '../src/component/Header/Header'
 import { Projects } from '../src/component/Projects/Projects'
+import { SkillsAndExp } from '../src/component/SkillsAndExp/SkillsAndExp'
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Header />
       <About />
       <Projects />
+      <SkillsAndExp />
     </div>
   )
 }

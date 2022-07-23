@@ -32,15 +32,12 @@ export const Projects: React.FC = () => {
   }, [filter, projectsCards])
 
   useEffect(() => {
-    const getAllAboutCards = () => {
-      const query = '*[_type == "projects"]'
+    const query = '*[_type == "projects"]'
 
-      client.fetch(query).then((data) => {
-        setProjectsCards(data)
-        setFilteredProjects(data)
-      })
-    }
-    getAllAboutCards()
+    client.fetch(query).then((data) => {
+      setProjectsCards(data)
+      setFilteredProjects(data)
+    })
   }, [])
 
   return (
