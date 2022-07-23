@@ -80,6 +80,7 @@ const Overlay = styled.div`
   width: 100%;
   border-radius: 10px;
   color: white;
+  transition: 500ms ease;
 `
 
 const ImageWrap = styled.div`
@@ -100,6 +101,7 @@ const Tag = styled.p`
   bottom: 0px;
   background-color: ${({ theme }) => theme.tagColor};
   padding: 7px;
+  color: ${({ theme }) => theme.primaryColor};
   border-radius: 10px 10px 0px 0px;
   border-top: 1px solid black;
   border-right: 1px solid black;

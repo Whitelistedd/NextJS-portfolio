@@ -85,7 +85,7 @@ const Container = styled.nav`
   height: 70px;
   z-index: 5;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  background: transparent;
+  background: ${({ theme }) => theme.background};
   font-family: var(--font-secondary);
   color: grey;
 
