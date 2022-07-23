@@ -52,7 +52,7 @@ export const Hightlight = styled.span`
 `
 
 const Title = styled.h2`
-  width: 600px;
+  max-width: 600px;
 `
 
 const Wrap = styled.div`
@@ -61,6 +61,7 @@ const Wrap = styled.div`
   text-align: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `
 
 const Container = styled.section`
@@ -78,14 +79,14 @@ const Container = styled.section`
 
   @media only screen and (max-width: 1000px) {
     ${Title} {
-      width: 550px;
+      max-width: 550px;
     }
     font-size: 20px;
   }
 
   @media only screen and (max-width: 680px) {
     ${Title} {
-      width: 450px;
+      max-width: 430px;
     }
     font-size: 17px;
   }

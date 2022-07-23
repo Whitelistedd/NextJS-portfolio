@@ -4,7 +4,7 @@ import { SkillProps } from '../SkillsAndExp.model'
 
 export const Skill: React.FC<SkillProps> = ({ ImageSRC, title, url }) => {
   return (
-    <Anchor href={url}>
+    <Anchor target="_blank" href={url}>
       <SkillsImage width={100} height={100} alt={title} src={ImageSRC} />
       <Title>{title}</Title>
     </Anchor>

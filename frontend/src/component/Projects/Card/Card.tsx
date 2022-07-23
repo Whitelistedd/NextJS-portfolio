@@ -179,6 +179,10 @@ const Wrap = styled.div<{ animation: string }>`
       overflow: visible;
     }
   }
+
+  @media only screen and (max-width: 680px) {
+    width: 300px;
+  }
 `
 
 const Container = styled.div`

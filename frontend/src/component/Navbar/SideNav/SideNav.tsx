@@ -50,4 +50,8 @@ const SideList = styled.ul`
   display: flex;
   flex-direction: column;
   position: absolute;
+
+  @media only screen and (max-width: 680px) {
+    display: none;
+  }
 `

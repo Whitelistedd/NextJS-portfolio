@@ -51,12 +51,16 @@ export const SkillsAndExp: React.FC = () => {
   )
 }
 
-const ExperienceContainer = styled.div``
+const ExperienceContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+`
 
 const SkillsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
+  max-width: 500px;
   gap: 1em;
 `
 
@@ -69,6 +73,8 @@ const Wrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 100%;
+  width: 100%;
   gap: 5em;
 `
 
@@ -78,7 +84,30 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 3em;
+  padding: 1em;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @media only screen and (max-width: 2000px) {
+  }
+
+  @media only screen and (max-width: 1500px) {
+  }
+
+  @media only screen and (max-width: 1200px) {
+  }
+
+  @media only screen and (max-width: 680px) {
+    ${Wrap} {
+    }
+    ${SkillsContainer} {
+      align-items: center;
+      justify-content: center;
+    }
+    ${ExperienceContainer} {
+      font-size: 19px;
+      justify-content: center;
+    }
+  }
 `
