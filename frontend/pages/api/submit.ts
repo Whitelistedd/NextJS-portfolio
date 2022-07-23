@@ -15,11 +15,15 @@ export default function handler(
 ) {
   if (req.method !== 'POST') return
 
+  const responseBody = JSON.parse(req.body)
+
+  const { name, email, message } = responseBody
+
   const contact = {
     _type: 'contact',
-    name: req.body.name,
-    email: req.body.email,
-    message: req.body.message,
+    name: name,
+    email: email,
+    message: message,
   }
 
   client
