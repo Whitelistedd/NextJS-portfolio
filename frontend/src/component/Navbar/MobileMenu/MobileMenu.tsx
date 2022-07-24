@@ -24,13 +24,25 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         </Close>
         <NavList>
           {NavListItems.map((item) => (
-            <ListItem key={item}>{item}</ListItem>
+            <Anchor href={`#${item}`} key={`mobile-menu-item- ${item}`}>
+              <ListItem>{item}</ListItem>
+            </Anchor>
           ))}
         </NavList>
       </Wrap>
     </>
   )
 }
+
+const Anchor = styled.a`
+  transition: 500ms ease;
+  text-decoration: none;
+  color: grey;
+
+  &:hover {
+    color: ${({ theme }) => theme.secondaryColor};
+  }
+`
 
 const ListItem = styled.li`
   font-size: 1.5em;

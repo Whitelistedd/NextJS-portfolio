@@ -48,7 +48,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   )
 }
 
-const ListItem = styled.li``
+const ListItem = styled.li`
+  transition: 500ms ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.secondaryColor};
+  }
+`
 
 const Anchor = styled.a`
   color: inherit;
