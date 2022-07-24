@@ -12,7 +12,7 @@ export const Card: React.FC<CardProps> = ({ title, description, ImageSRC }) => {
 }
 
 const Image = styled.img`
-  width: 250px;
+  width: 100%;
   border-radius: 10px;
 `
 
@@ -47,6 +47,10 @@ const Container = styled.div`
 
   @media only screen and (max-width: 680px) {
     font-size: 19px;
-    width: 300px;
+    width: 250px;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 16px;
+    width: 230px;
   }
 `

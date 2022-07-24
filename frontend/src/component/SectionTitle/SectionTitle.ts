@@ -12,8 +12,13 @@ export const SectionTitle = styled.h2`
   }
 
   @media only screen and (max-width: 680px) {
-    font-size: 19px;
-    width: 300px;
+    font-size: 25px;
+    width: 390px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 20px;
+    width: 309px;
   }
 `
 
