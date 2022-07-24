@@ -5,10 +5,6 @@ export interface MobileMenuProps {
   toggleMobileMenu: toggleFunction
 }
 
-export interface SideNavProps {
-  activeId: number
-}
-
 export interface NavbarProps {
   toggleTheme: toggleFunction
   SelectedTheme: string

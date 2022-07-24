@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { filterTypes } from '../../constants'
 import { client, urlFor } from '../../SanityClient'
 import { Hightlight } from '../SectionTitle/SectionTitle'
-import { SideNav } from '../Navbar/SideNav/SideNav'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { Card } from './Card/Card'
 import { ProjectsCardsState } from './Projects.model'
@@ -43,7 +42,6 @@ export const Projects: React.FC = () => {
 
   return (
     <Container id="Проекты">
-      <SideNav activeId={3} />
       <SectionTitle>
         Мои <Hightlight>Проекты</Hightlight>
       </SectionTitle>
@@ -107,6 +105,9 @@ const Selection = styled.button<{ active: boolean }>`
 
 const Selections = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 1em;
 `
 

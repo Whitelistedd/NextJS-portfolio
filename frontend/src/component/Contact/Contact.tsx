@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 import { SectionTitle } from '../SectionTitle/SectionTitle'
-import { SideNav } from '../Navbar/SideNav/SideNav'
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -46,7 +45,6 @@ export const Contact: React.FC = () => {
 
   return (
     <Container id="Контакт">
-      <SideNav activeId={5} />
       <SectionTitle>Общаться со мной</SectionTitle>
       {!formSubmitted ? (
         <Form>

@@ -28,6 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <ThemeChanger SelectedTheme={SelectedTheme} toggleTheme={toggleTheme} />
       <MenuIconWrap>
         <MenuIcon
+          color="white"
           onClick={() => toggleMobileMenu()}
           src={'/assets/images/menu.svg'}
           alt="Menu"

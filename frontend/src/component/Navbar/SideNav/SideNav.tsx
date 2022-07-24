@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 import { NavListItems } from '../Navbar'
-import { SideNavProps } from '../Navbar.model'
 
-export const SideNav: React.FC<SideNavProps> = ({ activeId }) => {
+export const SideNav: React.FC = () => {
   return (
     <SideList>
       {NavListItems.map((item, index) => (
-        <ListItem activeId={activeId} key={`${item} ${index++} `}>
+        <ListItem key={`${item} ${index++} `}>
           <Anchor href={`#${item}`}>
             <Circle></Circle>
           </Anchor>
@@ -33,25 +32,23 @@ const Circle = styled.div`
   }
 `
 
-const ListItem = styled.li<{ activeId: number }>`
-  &:nth-child(${(props) => props.activeId}) {
-    div {
-      background-color: var(--secondary-font-color);
-    }
-  }
-`
+const ListItem = styled.li``
 
 const SideList = styled.ul`
   list-style: none;
-  padding: 0em 1em 3em 0em;
+  padding: 0em 1em 0em 0em;
   right: 0;
   flex: 1;
-  gap: 1em;
+  gap: 2em;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  top: 50;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (max-width: 1000px) {
     display: none;
   }
 `

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { useTypewriter } from 'react-simple-typewriter'
-import { SideNav } from '../Navbar/SideNav/SideNav'
 
 export const Header: React.FC = () => {
   const { text } = useTypewriter({
@@ -14,7 +13,6 @@ export const Header: React.FC = () => {
 
   return (
     <Container id="Главная">
-      <SideNav activeId={1} />
       <Wrap>
         <Title>ПРИВЕТ, МЕНЯ ЗОВУТ</Title>
         <Name>Мухамад.</Name>
@@ -63,6 +61,7 @@ const Container = styled.section`
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: 70px;
   padding: 0em 1em;
   background-size: cover;
   background-repeat: no-repeat;

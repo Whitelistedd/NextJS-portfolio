@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
-import { SideNav } from '../Navbar/SideNav/SideNav'
 import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
 import { AboutCardsState } from './About.model'
 import { Card } from './Card/Card'
@@ -17,7 +16,6 @@ export const About: React.FC = () => {
 
   return (
     <Container id="Обо мне">
-      <SideNav activeId={2} />
       <Wrap>
         <SectionTitle>
           Я Знаю, Что <Hightlight>Хорошее Разработке</Hightlight> Означает

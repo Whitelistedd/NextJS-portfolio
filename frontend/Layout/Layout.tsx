@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Navbar } from '../src/component/Navbar/Navbar'
+import { SideNav } from '../src/component/Navbar/SideNav/SideNav'
 import { GlobalStyle } from '../src/GlobalStyles'
 import { theme } from '../src/theme'
 
@@ -15,6 +16,7 @@ export const Layout: React.FC<any> = ({ children }) => {
     <ThemeProvider theme={theme[`${selectedTheme}`]}>
       <Container>
         <Wrap>
+          <SideNav />
           <Navbar SelectedTheme={selectedTheme} toggleTheme={toggleTheme} />
           <GlobalStyle />
           {children}

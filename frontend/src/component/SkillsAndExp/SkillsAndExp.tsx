@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
-import { SideNav } from '../Navbar/SideNav/SideNav'
 import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
 import { Exp } from './Exp/Exp'
 import { Skill } from './Skill/Skill'
@@ -26,7 +25,6 @@ export const SkillsAndExp: React.FC = () => {
 
   return (
     <Container id="Навыки">
-      <SideNav activeId={4} />
       <SectionTitle>
         <Hightlight>Навыки</Hightlight> и <Hightlight>Опыт</Hightlight>
       </SectionTitle>
