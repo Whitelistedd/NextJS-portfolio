@@ -13,7 +13,7 @@ export const Projects: React.FC = () => {
   const [filteredProjects, setFilteredProjects] = useState<
     ProjectsCardsState[]
   >([])
-  const [filter, setFilter] = useState<string>('All')
+  const [filter, setFilter] = useState<string>('Все')
   const [animation, setAnimation] = useState('fadeUp')
 
   const handleFilters = (filterType: string) => {
@@ -25,7 +25,7 @@ export const Projects: React.FC = () => {
     setTimeout(() => {
       setAnimation('fadeUp')
       setFilteredProjects(
-        filter === 'All'
+        filter === 'Все'
           ? projectsCards
           : projectsCards.filter((project) => project?.tags?.includes(filter))
       )
@@ -81,6 +81,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2em;
+  min-height: 100%;
 `
 
 const Selection = styled.button<{ active: boolean }>`
@@ -113,7 +114,6 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
   width: 100%;
   gap: 3em;

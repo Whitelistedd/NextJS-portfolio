@@ -1,1 +1,1 @@
-export const filterTypes = ['All', 'NextJS', 'ReactJS']
+export const filterTypes = ['Все', 'NextJS', 'ReactJS', 'React Native']

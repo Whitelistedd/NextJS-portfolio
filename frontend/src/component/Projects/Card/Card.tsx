@@ -34,7 +34,7 @@ export const Card: React.FC<CardProps> = ({
             </Anchor>
           </Overlay>
           <ProjectImage src={ImageSRC} alt={title} />
-          <Tag>{tags[0]}</Tag>
+          <Tag>{tags?.[0]}</Tag>
         </ImageWrap>
         <About>
           <Title>{title}</Title>
@@ -59,6 +59,7 @@ const OverlayImage = styled(Image)`
   background: #000000a6;
   padding: 10px !important;
   border-radius: 50%;
+  transition: 500ms ease;
 
   &:hover {
     cursor: pointer;
