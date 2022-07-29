@@ -34,10 +34,10 @@ export const Card: React.FC<CardProps> = ({
             </Anchor>
           </Overlay>
           <ProjectImage src={ImageSRC} alt={title} />
-          <Tag>{tags?.[0]}</Tag>
+          <Tag>{title}</Tag>
         </ImageWrap>
         <About>
-          <Title>{title}</Title>
+          <Title>{tags?.[0]}</Title>
           <Description>{description}</Description>
         </About>
       </Wrap>
