@@ -36,7 +36,6 @@ const Container = styled.div`
   align-items: flex-end;
   padding: 0em 0em 1em 1em;
   color: blue;
-  height: 100%;
-  width: 100%;
+  bottom: 0;
   z-index: 5;
 `
