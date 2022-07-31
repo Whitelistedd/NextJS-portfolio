@@ -53,20 +53,20 @@ export const Contact: React.FC = () => {
             value={formData.name}
             name="name"
             type="text"
-            placeholder="Name"
+            placeholder="Имя"
           />
           <EmailInput
             onChange={handleOnChange}
             value={formData.email}
             name="email"
             type="email"
-            placeholder="Name"
+            placeholder="Эл. адрес"
           />
           <MessageInput
             onChange={(e) => handleOnChange(e)}
             value={formData.message}
             name="message"
-            placeholder="Name"
+            placeholder="Сообщение"
           />
           {error && <Error>{error}</Error>}
           <Submit onClick={() => handleFormSubmit()} type="submit">
