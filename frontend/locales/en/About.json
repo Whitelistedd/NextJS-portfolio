@@ -1,0 +1,13 @@
+{
+  "title": "I Know Good Development Means Good Business",
+  "cards": {
+    "Frontend": "Frontend-Developer",
+    "Backend": "Backend-Developer",
+    "WebDesign": "Web-Designer"
+  },
+  "cardDescriptions": {
+    "Frontend": "I am a Frontend-Developer, and I love to create web apps, especially with React, and I also love to create beautiful user interfaces.",
+    "Backend": "I am a Backend-developer and I love building good APIs using the latest technology.",
+    "WebDesign": "I'm an aspiring Web-Designer and I'm passionate about learning more about web design and becoming a pro at it."
+  }
+}

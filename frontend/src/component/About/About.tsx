@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
@@ -6,6 +7,7 @@ import { AboutCardsState } from './About.model'
 import { Card } from './Card/Card'
 
 export const About: React.FC = () => {
+  const { t } = useTranslation('About')
   const [aboutCards, setAboutCards] = useState<AboutCardsState[]>([])
 
   useEffect(() => {
@@ -14,19 +16,22 @@ export const About: React.FC = () => {
     client.fetch(query).then((data) => setAboutCards(data))
   }, [])
 
+  console.log(aboutCards)
   return (
     <Container id="Обо мне">
       <Wrap>
         <SectionTitle>
-          Я Знаю, Что <Hightlight>Хорошее Разработке</Hightlight> Означает
-          <Hightlight> Хороший Бизнес</Hightlight>
+          {t('title').substring(0, 12)}{' '}
+          <Hightlight>{t('title').substring(12, 31)}</Hightlight>
+          {t('title').substring(31, 40)}
+          <Hightlight>{t('title').substring(40)}</Hightlight>
         </SectionTitle>
         <Cards>
           {aboutCards?.map((card, index) => (
             <Card
               key={`about-cards ${index}`}
-              title={card.title}
-              description={card.description}
+              title={t(`cards.${card.title}`)}
+              description={t(`cardDescriptions.${card.title}`)}
               ImageSRC={urlFor(card.mainImage).url()}
             />
           ))}

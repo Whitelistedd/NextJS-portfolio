@@ -3,12 +3,16 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import useTranslation from 'next-translate/useTranslation'
+import { ThemeType } from '../../theme'
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const { t } = useTranslation('Contact')
 
   const handleOnChange = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
@@ -21,12 +25,14 @@ export const Contact: React.FC = () => {
     setLoading(true)
     const { name, email, message } = formData
     if (!name || !email || !message) {
-      setError('Что-то не заполнено')
+      setError(t('errors.somethingIsNotFilled'))
+      setLoading(false)
       return
     }
 
     if (message.length > 300) {
-      setError('сообщение больше 200 символов')
+      setError(t('exceeds200Char'))
+      setLoading(false)
       return
     }
 
@@ -45,7 +51,7 @@ export const Contact: React.FC = () => {
 
   return (
     <Container id="Контакт">
-      <SectionTitle>Общаться со мной</SectionTitle>
+      <SectionTitle>{t('title')}</SectionTitle>
       {!formSubmitted ? (
         <Form>
           <NameInput
@@ -53,28 +59,28 @@ export const Contact: React.FC = () => {
             value={formData.name}
             name="name"
             type="text"
-            placeholder="Имя"
+            placeholder={t('name')}
           />
           <EmailInput
             onChange={handleOnChange}
             value={formData.email}
             name="email"
             type="email"
-            placeholder="Эл. адрес"
+            placeholder={t('email')}
           />
           <MessageInput
             onChange={(e) => handleOnChange(e)}
             value={formData.message}
             name="message"
-            placeholder="Сообщение"
+            placeholder={t('message')}
           />
           {error && <Error>{error}</Error>}
           <Submit onClick={() => handleFormSubmit()} type="submit">
-            {loading ? 'загрузка...' : 'Submit'}
+            {loading ? t('status.loading') : t('send')}
           </Submit>
         </Form>
       ) : (
-        <Submitted>отправлено, постараюсь ответить как можно скорее</Submitted>
+        <Submitted>{t('status.success')}</Submitted>
       )}
     </Container>
   )
@@ -85,7 +91,9 @@ const Error = styled.p`
   font-size: 0.7em;
 `
 
-const Submitted = styled.h3``
+const Submitted = styled.h3<{ theme: ThemeType }>`
+  color: ${({ theme }) => theme.primaryColor};
+`
 
 const Submit = styled.button`
   padding: 1em 3em;

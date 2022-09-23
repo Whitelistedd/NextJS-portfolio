@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import { useTypewriter } from 'react-simple-typewriter'
+import useTranslation from 'next-translate/useTranslation'
 
 export const Header: React.FC = () => {
+  const { t } = useTranslation('Header')
+
   const { text } = useTypewriter({
     words: [
-      ' Full-stack разработчик.',
-      ' Front-end разработчик.',
-      ' Back-end разработчик.',
+      t('position.fullstack'),
+      t('position.frontend'),
+      t('position.backend'),
     ],
     loop: 0,
   })
@@ -14,14 +17,13 @@ export const Header: React.FC = () => {
   return (
     <Container id="Главная">
       <Wrap>
-        <Title>ПРИВЕТ, МЕНЯ ЗОВУТ</Title>
-        <Name>Мухамад.</Name>
-        <Position>Я{text}</Position>
-        <About>
-          Мне нравится создавать красивые сайты для людей 🚀. В настоящее время
-          я сосредоточен на изучении и освоении ReactJS, а также React Native в
-          будущем.
-        </About>
+        <Title>{t('title')}</Title>
+        <Name>{t('name')}.</Name>
+        <Position>
+          {t('me')}
+          {text}
+        </Position>
+        <About>{t('about')}</About>
       </Wrap>
     </Container>
   )

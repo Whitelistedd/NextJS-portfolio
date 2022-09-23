@@ -1,11 +1,13 @@
 import Image from 'next/image'
-import styled from 'styled-components'
-import { NavListItems } from '../Navbar'
+import { LanguageChanger } from '../LanguageChanger/LanguageChanger'
 import { MobileMenuProps } from '../Navbar.model'
+import { NavListItems } from '../Navbar'
+import styled from 'styled-components'
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   showMenu,
   toggleMobileMenu,
+  t,
 }) => {
   return (
     <>
@@ -14,18 +16,21 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         showMenu={showMenu}
       ></Container>
       <Wrap showMenu={showMenu}>
-        <Close onClick={() => toggleMobileMenu()}>
-          <Image
-            src={'/assets/images/close.svg'}
-            width={24}
-            height={24}
-            alt="Close"
-          />
-        </Close>
+        <Top>
+          <LanguageChanger />
+          <Close onClick={() => toggleMobileMenu()}>
+            <Image
+              src={'/assets/images/close.svg'}
+              width={24}
+              height={24}
+              alt="Close"
+            />
+          </Close>
+        </Top>
         <NavList>
           {NavListItems.map((item) => (
             <Anchor href={`#${item}`} key={`mobile-menu-item- ${item}`}>
-              <ListItem>{item}</ListItem>
+              <ListItem>{t(item)}</ListItem>
             </Anchor>
           ))}
         </NavList>
@@ -65,7 +70,6 @@ const NavList = styled.ul`
 
 const Close = styled.div`
   align-self: flex-end;
-  padding: 1.3em 1.4em 0em 0em;
   span {
     transition: 1s ease;
   }
@@ -75,6 +79,16 @@ const Close = styled.div`
     }
     cursor: pointer;
   }
+  @media only screen and (min-width: 800px) {
+    display: none;
+  }
+`
+
+const Top = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3em 1.4em 0em 1.4em;
 `
 
 const Wrap = styled.div<{ showMenu: boolean }>`

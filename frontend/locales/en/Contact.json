@@ -1,0 +1,15 @@
+{
+  "title": "Contact me",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "send": "Submit",
+  "status": {
+    "loading": "loading...",
+    "success": "Sent, I will try my best to reply ASAP"
+  },
+  "errors": {
+    "somethingIsNotFilled": "Something is not filled",
+    "exceeds200Char": "Message should be less then 200 characters"
+  }
+}

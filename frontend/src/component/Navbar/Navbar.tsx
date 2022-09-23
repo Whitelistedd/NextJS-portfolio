@@ -1,23 +1,20 @@
 import Image from 'next/image'
-import { useState } from 'react'
-import styled from 'styled-components'
+import { LanguageChanger } from './LanguageChanger/LanguageChanger'
 import { MobileMenu } from './MobileMenu/MobileMenu'
 import { NavbarProps } from './Navbar.model'
 import { ThemeChanger } from './ThemeChanger/ThemeChanger'
+import styled from 'styled-components'
+import { useState } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 
-export const NavListItems = [
-  'Главная',
-  'Обо мне',
-  'Проекты',
-  'Навыки',
-  'Контакт',
-]
+export const NavListItems = ['Home', 'AboutMe', 'Projects', 'Skills', 'Contact']
 
 export const Navbar: React.FC<NavbarProps> = ({
   toggleTheme,
   SelectedTheme,
 }) => {
   const [showMenu, setShowMenu] = useState(false)
+  const { t } = useTranslation('Navbar')
 
   const toggleMobileMenu = () => {
     setShowMenu((prev) => (prev ? false : true))
@@ -36,14 +33,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           height={30}
         />
       </MenuIconWrap>
-      <MobileMenu toggleMobileMenu={toggleMobileMenu} showMenu={showMenu} />
+      <MobileMenu
+        t={t}
+        toggleMobileMenu={toggleMobileMenu}
+        showMenu={showMenu}
+      />
       <NavList>
         {NavListItems.map((item) => (
           <ListItem key={item}>
-            <Anchor href={`#${item}`}>{item}</Anchor>
+            <Anchor href={`#${item}`}>{t(item)}</Anchor>
           </ListItem>
         ))}
       </NavList>
+      <NavbarLanguageChanger />
     </Container>
   )
 }
@@ -75,6 +77,12 @@ const MenuIcon = styled(Image)`
   transition: 1s ease;
   &:hover {
     transform: rotate(360deg);
+  }
+`
+
+const NavbarLanguageChanger = styled(LanguageChanger)`
+  @media only screen and (max-width: 800px) {
+    display: none;
   }
 `
 

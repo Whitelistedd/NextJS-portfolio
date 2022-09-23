@@ -1,0 +1,11 @@
+{
+  "title": "Hello, my name is",
+  "name": "Muhammad",
+  "me": "I am a",
+  "position": {
+    "fullstack": " Full-stack Developer.",
+    "frontend": " Front-end Developer.",
+    "backend": " Back-end Developer."
+  },
+  "about": "I love creating beautiful websites for people 🚀. I am currently focused on mastering ReactJS as well as React Native."
+}

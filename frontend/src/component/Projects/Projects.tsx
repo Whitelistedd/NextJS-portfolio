@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { filterTypes } from '../../constants'
@@ -14,6 +15,8 @@ export const Projects: React.FC = () => {
   >([])
   const [filter, setFilter] = useState<string>('Все')
   const [animation, setAnimation] = useState('fadeUp')
+
+  const { t } = useTranslation('Projects')
 
   const handleFilters = (filterType: string) => {
     setFilter(filterType)
@@ -43,7 +46,8 @@ export const Projects: React.FC = () => {
   return (
     <Container id="Проекты">
       <SectionTitle>
-        Мои <Hightlight>Проекты</Hightlight>
+        {t('title').substring(0, 4)}
+        <Hightlight>{t('title').substring(4)}</Hightlight>
       </SectionTitle>
       <Selections>
         {filterTypes.map((filterType, index) => (

@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { client, urlFor } from '../../SanityClient'
@@ -9,6 +10,8 @@ import { ExpStateType, skillsStateType } from './SkillsAndExp.model'
 export const SkillsAndExp: React.FC = () => {
   const [skills, SetSkills] = useState<skillsStateType>()
   const [experiences, SetExperiences] = useState<ExpStateType>()
+
+  const { t } = useTranslation('SkillsAndExp')
 
   useEffect(() => {
     const experienceQuery = '*[_type == "experiences"]'
@@ -26,7 +29,9 @@ export const SkillsAndExp: React.FC = () => {
   return (
     <Container id="Навыки">
       <SectionTitle>
-        <Hightlight>Навыки</Hightlight> и <Hightlight>Опыт</Hightlight>
+        <Hightlight>{t('title').substring(0, 6)}</Hightlight>
+        {t('title').substring(6, 9)}
+        <Hightlight>{t('title').substring(9)}</Hightlight>
       </SectionTitle>
       <Wrap>
         <SkillsContainer>

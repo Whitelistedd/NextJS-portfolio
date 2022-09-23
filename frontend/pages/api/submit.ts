@@ -15,7 +15,9 @@ export default function handler(
 ) {
   if (req.method !== 'POST') return
 
-  const responseBody = JSON.parse(req.body)
+  console.log(req.body)
+
+  const responseBody = req.body
 
   const { name, email, message } = responseBody
 

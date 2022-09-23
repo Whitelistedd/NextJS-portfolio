@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { NavListItems } from '../Navbar'
+import styled from 'styled-components'
 
 export const SideNav: React.FC = () => {
   return (
