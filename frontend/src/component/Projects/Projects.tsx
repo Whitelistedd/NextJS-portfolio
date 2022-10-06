@@ -1,12 +1,13 @@
-import useTranslation from 'next-translate/useTranslation'
-import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { filterTypes } from '../../constants'
 import { client, urlFor } from '../../SanityClient'
-import { Hightlight } from '../SectionTitle/SectionTitle'
-import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { useEffect, useState } from 'react'
+
 import { Card } from './Card/Card'
+import { Hightlight } from '../SectionTitle/SectionTitle'
 import { ProjectsCardsState } from './Projects.model'
+import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { filterTypes } from '../../constants'
+import styled from 'styled-components'
+import useTranslation from 'next-translate/useTranslation'
 
 export const Projects: React.FC = () => {
   const [projectsCards, setProjectsCards] = useState<ProjectsCardsState[]>([])
@@ -16,7 +17,7 @@ export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('Все')
   const [animation, setAnimation] = useState('fadeUp')
 
-  const { t } = useTranslation('Projects')
+  const { t, lang } = useTranslation('Projects')
 
   const handleFilters = (filterType: string) => {
     setFilter(filterType)
@@ -44,10 +45,14 @@ export const Projects: React.FC = () => {
   }, [])
 
   return (
-    <Container id="Проекты">
+    <Container id="Projects">
       <SectionTitle>
-        {t('title').substring(0, 4)}
-        <Hightlight>{t('title').substring(4)}</Hightlight>
+        {lang === 'ru'
+          ? t('title').substring(0, 4)
+          : t('title').substring(0, 2)}{' '}
+        <Hightlight>
+          {lang === 'ru' ? t('title').substring(4) : t('title').substring(3)}{' '}
+        </Hightlight>
       </SectionTitle>
       <Selections>
         {filterTypes.map((filterType, index) => (
@@ -124,6 +129,7 @@ const Container = styled.section`
   gap: 3em;
   padding: 1em;
   font-size: 25px;
+  padding-top: 70px;
 
   @media only screen and (max-width: 1000px) {
     font-size: 20px;

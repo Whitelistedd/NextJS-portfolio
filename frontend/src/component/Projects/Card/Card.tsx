@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import styled, { keyframes } from 'styled-components'
+
 import { CardProps } from '../Projects.model'
+import Image from 'next/image'
 
 export const Card: React.FC<CardProps> = ({
   title,
@@ -67,7 +68,9 @@ const OverlayImage = styled(Image)`
   }
 `
 
-const Anchor = styled.a``
+const Anchor = styled.a`
+  display: none;
+`
 
 const Overlay = styled.div`
   position: absolute;

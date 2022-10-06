@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from 'react'
-import styled from 'styled-components'
-import axios from 'axios'
 
 import { SectionTitle } from '../SectionTitle/SectionTitle'
-import useTranslation from 'next-translate/useTranslation'
 import { ThemeType } from '../../theme'
+import axios from 'axios'
+import styled from 'styled-components'
+import useTranslation from 'next-translate/useTranslation'
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -50,7 +50,7 @@ export const Contact: React.FC = () => {
   }
 
   return (
-    <Container id="Контакт">
+    <Container id="Contact">
       <SectionTitle>{t('title')}</SectionTitle>
       {!formSubmitted ? (
         <Form>

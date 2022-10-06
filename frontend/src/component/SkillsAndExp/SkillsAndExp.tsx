@@ -1,17 +1,18 @@
-import useTranslation from 'next-translate/useTranslation'
-import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { client, urlFor } from '../../SanityClient'
+import { ExpStateType, skillsStateType } from './SkillsAndExp.model'
 import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
+import { client, urlFor } from '../../SanityClient'
+import { useEffect, useState } from 'react'
+
 import { Exp } from './Exp/Exp'
 import { Skill } from './Skill/Skill'
-import { ExpStateType, skillsStateType } from './SkillsAndExp.model'
+import styled from 'styled-components'
+import useTranslation from 'next-translate/useTranslation'
 
 export const SkillsAndExp: React.FC = () => {
   const [skills, SetSkills] = useState<skillsStateType>()
   const [experiences, SetExperiences] = useState<ExpStateType>()
 
-  const { t } = useTranslation('SkillsAndExp')
+  const { t, lang } = useTranslation('SkillsAndExp')
 
   useEffect(() => {
     const experienceQuery = '*[_type == "experiences"]'
@@ -27,11 +28,15 @@ export const SkillsAndExp: React.FC = () => {
   }, [])
 
   return (
-    <Container id="Навыки">
+    <Container id="Skills">
       <SectionTitle>
         <Hightlight>{t('title').substring(0, 6)}</Hightlight>
-        {t('title').substring(6, 9)}
-        <Hightlight>{t('title').substring(9)}</Hightlight>
+        {lang === 'en'
+          ? t('title').substring(6, 10)
+          : t('title').substring(6, 9)}
+        <Hightlight>
+          {lang === 'en' ? t('title').substring(10) : t('title').substring(9)}
+        </Hightlight>
       </SectionTitle>
       <Wrap>
         <SkillsContainer>
@@ -92,6 +97,7 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 70px;
 
   @media only screen and (max-width: 680px) {
     ${SkillsContainer} {

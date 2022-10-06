@@ -1,13 +1,14 @@
-import useTranslation from 'next-translate/useTranslation'
-import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { client, urlFor } from '../../SanityClient'
 import { Hightlight, SectionTitle } from '../SectionTitle/SectionTitle'
+import { client, urlFor } from '../../SanityClient'
+import { useEffect, useState } from 'react'
+
 import { AboutCardsState } from './About.model'
 import { Card } from './Card/Card'
+import styled from 'styled-components'
+import useTranslation from 'next-translate/useTranslation'
 
 export const About: React.FC = () => {
-  const { t } = useTranslation('About')
+  const { t, lang } = useTranslation('About')
   const [aboutCards, setAboutCards] = useState<AboutCardsState[]>([])
 
   useEffect(() => {
@@ -16,15 +17,26 @@ export const About: React.FC = () => {
     client.fetch(query).then((data) => setAboutCards(data))
   }, [])
 
-  console.log(aboutCards)
   return (
-    <Container id="Обо мне">
+    <Container id="AboutMe">
       <Wrap>
         <SectionTitle>
-          {t('title').substring(0, 12)}{' '}
-          <Hightlight>{t('title').substring(12, 31)}</Hightlight>
-          {t('title').substring(31, 40)}
-          <Hightlight>{t('title').substring(40)}</Hightlight>
+          {lang === 'ru'
+            ? t('title').substring(0, 12)
+            : t('title').substring(0, 7)}{' '}
+          <Hightlight>
+            {lang === 'ru'
+              ? t('title').substring(12, 31)
+              : t('title').substring(7, 24)}{' '}
+          </Hightlight>
+          {lang === 'ru'
+            ? t('title').substring(31, 40)
+            : t('title').substring(24, 30)}{' '}
+          <Hightlight>
+            {lang === 'ru'
+              ? t('title').substring(40)
+              : t('title').substring(30)}{' '}
+          </Hightlight>
         </SectionTitle>
         <Cards>
           {aboutCards?.map((card, index) => (

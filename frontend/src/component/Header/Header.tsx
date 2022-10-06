@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { useTypewriter } from 'react-simple-typewriter'
 import useTranslation from 'next-translate/useTranslation'
+import { useTypewriter } from 'react-simple-typewriter'
 
 export const Header: React.FC = () => {
   const { t } = useTranslation('Header')
@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
   })
 
   return (
-    <Container id="Главная">
+    <Container id="Home">
       <Wrap>
         <Title>{t('title')}</Title>
         <Name>{t('name')}.</Name>

@@ -1,6 +1,6 @@
 {
   "locales": ["en", "ru"],
-  "defaultLocale": "en",
+  "defaultLocale": "ru",
   "pages": {
     "*": ["Header", "About", "Projects", "SkillsAndExp", "Contact", "Navbar"]
   }

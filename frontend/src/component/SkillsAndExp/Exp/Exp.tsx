@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { ExpProps } from '../SkillsAndExp.model'
+import styled from 'styled-components'
 
 export const Exp: React.FC<ExpProps> = ({ date, details }) => {
   return (
@@ -45,4 +45,5 @@ const Date = styled.p`
 const Container = styled.div`
   display: flex;
   gap: 3em;
+  width: 100%;
 `
