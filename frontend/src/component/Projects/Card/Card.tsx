@@ -97,6 +97,9 @@ const ImageWrap = styled.div`
     ${Overlay} {
       opacity: 1;
     }
+    ${Anchor} {
+      display: flex;
+    }
   }
 `
 
@@ -116,6 +119,7 @@ const Tag = styled.p`
 const Description = styled.p`
   font-size: 0.8em;
   color: grey;
+  max-width: 100%;
 `
 
 const Title = styled.h3`
@@ -188,7 +192,7 @@ const Wrap = styled.div<{ animation: string }>`
 `
 
 const Container = styled.div`
-  height: 296px;
+  min-height: 296px;
   font-size: 20px;
 
   @media only screen and (max-width: 1000px) {
